@@ -1,0 +1,26 @@
+<apex:page standardcontroller="Transaction__c" extensions="transactionOrderExt" docType="html-5.0"> <!--displayMaterials-->
+    <apex:form >
+        <apex:pageBlock title="New Transaction">
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Save Transaction" action="{!saveTransaction}"/>
+                <apex:commandButton value="Cancel Transaction" action="{!cancel}" />
+            </apex:pageBlockButtons>
+            <apex:pageMessages />
+            <apex:pageBlockSection >
+                  <apex:inputField value="{!newTransaction.Material__c}">
+                      <apex:actionSupport event="onchange" reRender="total-price, price" />
+                  </apex:inputField>
+                  <apex:inputField value="{!newTransaction.Quantity__c}">
+                      <apex:actionSupport event="onchange" reRender="total-price, price" />
+                  </apex:inputField>
+          </apex:pageBlockSection>
+          <apex:pageBlockSection >
+              <apex:outputText label="Material Price" value="{!Price}" id="price" />
+              <apex:outputText label="Total price" id="total-price" value="{!Total}" />
+          </apex:pageBlockSection>
+          <apex:pageBlockSection >
+              <apex:inputField label="Transaction Date" value="{!newTransaction.Transaction_Date__c}"/>
+          </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

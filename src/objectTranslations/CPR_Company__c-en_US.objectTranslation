@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>CPR_Company</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>CPR_Companies</value>
+    </caseValues>
+    <fields>
+        <label><!-- Parent_ID --></label>
+        <name>Parent_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- legal_entity --></label>
+        <name>legal_entity__c</name>
+    </fields>
+    <fields>
+        <label><!-- profitability_Relationship_Name --></label>
+        <name>profitability_Relationship_Name__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

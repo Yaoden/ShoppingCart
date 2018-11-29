@@ -1,0 +1,36 @@
+<apex:page controller="bulkTransactionPrototypeController">
+    <apex:form >
+        <apex:pageBlock title="Shopping Cart" id="transaction-table">
+        	<apex:pageBlockButtons location="bottom">
+        		<apex:commandButton value="Save Transactions" action="{!saveTransactions}" />
+        	</apex:pageBlockButtons>
+           <apex:variable value="{!0}" var="i" />
+           <apex:pageBlockTable value="{!newTransactions}" var="transaction" >
+               <apex:column headerValue="Material Id">
+                   <apex:inputField value="{!transaction.Material__c}">
+                   		<apex:actionSupport event="onchange" action="{!updateRow}" reRender="transaction-table, total-cost" />
+                   </apex:inputField>
+               </apex:column>  
+                <apex:column headerValue="Material Name" >
+                   <apex:outputText value="{!chosenMaterialNames[i]}" id="material-name"  />
+               </apex:column>            
+               <apex:column headerValue="Material Price" > 
+                   <apex:outputText value="{!chosenMaterialPrice[i]}" id="material-price" />
+               </apex:column>
+               <apex:column headerValue="Quantity">
+                   <apex:inputField value="{!transaction.Quantity__c}">
+                   		<apex:actionSupport event="onchange" action="{!updateRow}" reRender="transaction-table, total-cost" />
+                   </apex:inputField>
+               </apex:column>
+               <apex:column headerValue="Total Price" id="total-price" >
+               		<apex:outputText value="{!newTotals[i]}" />
+               </apex:column>
+               <apex:variable value="{!i + 1}" var="i" />
+           </apex:pageBlockTable>
+			<apex:actionRegion >
+   				<apex:commandButton value="Add Transaction" action="{!addTransaction}" reRender="transaction-table" />
+   			</apex:actionRegion>
+			<apex:outputText value="{!totalCost}" id="total-cost"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

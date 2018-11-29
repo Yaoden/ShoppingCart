@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Budget</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Budgets</value>
+    </caseValues>
+    <fields>
+        <label><!-- Allocated Budget --></label>
+        <name>Allocated_Budget__c</name>
+    </fields>
+    <fields>
+        <label><!-- Budget Spent --></label>
+        <name>Budget_Spent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Remaining Budget --></label>
+        <name>Remaining_Budget__c</name>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- Budgets --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Budget Layout</layout>
+        <sections>
+            <label><!-- Budget Information --></label>
+            <section>Budget Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- The user of an existing budget cannot be changed. If the budget is incorrect, please delete the budget and create a new one. --></errorMessage>
+        <name>Cannot_change_budget_user</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Budget spent cannot exceed allocated budget --></errorMessage>
+        <name>Cap_Budget_Spent</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Allocated budget must be greater than 0 --></errorMessage>
+        <name>Check_Allocated_Budget</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Sorry, you cannot change your own budget. --></errorMessage>
+        <name>User_cannot_edit_their_own_budget</name>
+    </validationRules>
+</CustomObjectTranslation>
